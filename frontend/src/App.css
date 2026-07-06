@@ -1,0 +1,27 @@
+.stats-link, .pricing-link{
+  text-decoration: none;
+}
+
+.pricing-img{
+    display: inline-block;
+}
+
+.navbar-logo{
+    margin-left: 5%;
+}
+
+.footer-link{
+    text-decoration: none;
+    color: #424242;
+    font-size :15px;
+    margin-bottom: 15px !important;
+    display: block;
+}
+
+.footer-bottom-text{
+    font-size:smaller;
+}
+
+.footer{
+    width: 120%;
+}

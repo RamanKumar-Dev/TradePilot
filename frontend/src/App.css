@@ -1,27 +1,76 @@
-.stats-link, .pricing-link{
+p {
+  font-size: 1.1rem;
+}
+
+.stats-link,
+a,
+.pricing-link {
   text-decoration: none;
 }
 
-.pricing-img{
-    display: inline-block;
+.pricing-img {
+  display: inline-block;
 }
 
-.navbar-logo{
-    margin-left: 5%;
+/* Navbar */
+.navbar-logo {
+  margin-left: 5%;
 }
 
-.footer-link{
-    text-decoration: none;
-    color: #424242;
-    font-size :15px;
-    margin-bottom: 15px !important;
-    display: block;
+/* Footer */
+
+.footer-link {
+  text-decoration: none;
+  color: #424242;
+  font-size: 15px;
+  margin-bottom: 15px !important;
+  display: block;
 }
 
-.footer-bottom-text{
-    font-size:smaller;
+.footer {
+  width: 120%;
 }
 
-.footer{
-    width: 120%;
+/* About Page */
+
+.about-hero {
+  width: 55%;
+  margin-left: 25%;
+  margin-bottom: 10%;
+}
+
+.rounded-circle {
+  width: 50%;
+  height: 75%;
+}
+
+.author {
+  margin-left: 30%;
+}
+
+/* Products Page */
+.badges:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.rightSection {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.leftSection {
+  margin-top: 5rem;
+}
+
+/*product page ->  Universe */
+.universe-top-space{
+  margin-top: 7rem;
+}
+
+.zfh-logo{
+  margin-left: auto;
+  height: 35%;
+  width: 70%;
+  margin-bottom: 1rem;
 }

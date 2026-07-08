@@ -131,7 +131,7 @@ function Footer() {
           </div>
         </div>
         <div className="mt-5 footer-bottom-text">
-          <p>
+          <p  style={{fontSize: "smaller"}}>
             Zerodha Broking Ltd.: Member of NSE, BSE, MCX & MSEI - SEBI
             Registration no.: INZ000031633 CDSL/NSDL: Depository services
             through Zerodha Broking Ltd. - SEBI Registration no.: IN-DP-431-2019
@@ -142,21 +142,21 @@ function Footer() {
             related to dp@zerodha.com. Please ensure you carefully read the Risk
             Disclosure Document as prescribed by SEBI | ICF
           </p>
-          <p>
+          <p  style={{fontSize: "smaller"}}>
             Procedure to file a complaint on SEBI SCORES: Register on SCORES
             portal. Mandatory details for filing complaints on SCORES: Name,
             PAN, Address, Mobile Number, E-mail ID. Benefits: Effective
             Communication, Speedy redressal of the grievances{" "}
           </p>
-          <p>
+          <p  style={{fontSize: "smaller"}}>
             Smart Online Dispute Resolution | Grievances Redressal Mechanism
           </p>
-          <p>
+          <p  style={{fontSize: "smaller"}}>
             {" "}
             Investments in securities market are subject to market risks; read
             all the related documents carefully before investing.{" "}
           </p>
-          <p>
+          <p style={{fontSize: "smaller"}}>
             Attention investors: 1) Stock brokers can accept securities as
             margins from clients only by way of pledge in the depository system
             w.e.f September 01, 2020. 2) Update your e-mail and phone number
@@ -165,11 +165,11 @@ function Footer() {
             create pledge. 3) Check your securities / MF / bonds in the
             consolidated account statement issued by NSDL/CDSL every month.
           </p>
-          <p>
+          <p style={{fontSize: "smaller"}}>
             India's largest broker based on networth as per NSE. NSE broker
             factsheet
           </p>
-          <p>
+          <p style={{fontSize: "smaller"}}>
             "Prevent unauthorised transactions in your account. Update your
             mobile numbers/email IDs with your stock brokers/depository
             participants. Receive information of your transactions directly from
@@ -187,14 +187,14 @@ function Footer() {
             others. If you find anyone claiming to be part of Zerodha and
             offering such services, please create a ticket here.{" "}
           </p>
-          <p>
+          <p style={{fontSize: "smaller"}}>
             *Customers availing insurance advisory services offered by Ditto
             (Tacterial Consulting Private Limited | IRDAI Registered Corporate
             Agent (Composite) License No CA0738) will not have access to the
             exchange investor grievance redressal forum, SEBI SCORES/ODR, or
             arbitration mechanism for such products.{" "}
           </p>
-          <p>
+          <p style={{fontSize: "smaller"}}>
             Fixed deposit products offered on this platform are third-party
             products (TPP) and are not Exchange traded products. These are
             offered through Blostem Fintech Private Limited. Zerodha Broking

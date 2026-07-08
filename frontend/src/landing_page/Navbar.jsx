@@ -1,18 +1,19 @@
 import React from "react";
 import logo from "../assets/images/logo.svg";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg bg-body-light border-bottom">
       <div className="container-fluid ">
         <div className="navbar-logo">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/">
             <img
               src={logo}
               alt="logo"
               style={{ width: "130px", height: "17px" }}
             />
-          </a>
+          </Link>
         </div>
         <div className="margin-auto"></div>
         <div>
@@ -31,31 +32,31 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item me-4">
-                <a className="nav-link" aria-current="page" href="/signup">
+                <Link className="nav-link" aria-current="page" to="/signup">
                   Signup
-                </a>
+                </Link>
               </li>
               <li className="nav-item me-4">
-                <a className="nav-link" href="/about">
+                <Link className="nav-link" to="/about">
                   About
-                </a>
+                </Link>
               </li>
               <li className="nav-item me-4">
-                <a className="nav-link" href="/products">
+                <Link className="nav-link" to="/products">
                   Products
-                </a>
+                </Link>
               </li>
 
               <li className="nav-item me-4">
-                <a className="nav-link" href="/pricing">
+                <Link className="nav-link" to="/pricing">
                   Pricing
-                </a>
+                </Link>
               </li>
 
               <li className="nav-item me-4">
-                <a className="nav-link" href="/support">
+                <Link className="nav-link" to="/support">
                   Support
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

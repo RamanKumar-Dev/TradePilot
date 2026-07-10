@@ -3,7 +3,7 @@ import logo from "../assets/images/logo.svg";
 
 function Footer() {
   return (
-    <footer className="border-top mt-5 bg-light">
+    <footer className="border-top bg-light footer-top">
       <div className="container mt-5">
         <div className="row">
           <div className="col-3">

@@ -17,6 +17,10 @@ a,
   margin-left: 5%;
 }
 
+.nav-link:hover{
+  color: rgba(0, 0, 255, 0.798);
+}
+
 /* Footer */
 
 .footer-link {
@@ -64,13 +68,54 @@ a,
 }
 
 /*product page ->  Universe */
-.universe-top-space{
+.universe-top-space,
+.footer-top {
   margin-top: 7rem;
 }
 
-.zfh-logo{
+.logo {
   margin-left: auto;
   height: 35%;
-  width: 70%;
+  width: 60%;
   margin-bottom: 1rem;
+}
+
+.universe-text {
+  font-size: smaller;
+  opacity: 0.6;
+}
+
+/* Pricing Page */
+.card-img-top {
+  height: 40%;
+  margin-bottom: 1rem;
+}
+
+.Brokerage-text {
+  opacity: 0.7;
+  font-size: 16px;
+}
+
+/* Support Page*/
+.support {
+  padding: 3rem 4.5rem;
+  margin-bottom: 3rem;
+  background-color: #f7f5f5;
+}
+.support-link {
+  text-decoration: none;
+  color: #424242;
+}
+
+.support-input {
+  height: 4rem;
+  margin-right: 2rem;
+  opacity: 0.6;
+}
+
+/* Features */
+.features-container {
+  padding-left: 4.5rem;
+  margin: 0;
+  line-height: 3rem;
 }

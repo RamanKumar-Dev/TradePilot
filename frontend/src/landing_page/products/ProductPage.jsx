@@ -20,7 +20,7 @@ function ProductPage() {
       <LeftSection
         productImg={console}
         title="Console"
-        description="The central dashboard for your Zerodha account. Gain insights into your trades and investments with in-depth reports and visualisations. "
+        description="The central dashboard for your TradePilot account. Gain insights into your trades and investments with in-depth reports and visualisations. "
       />
       <RightSection
         productImg={coin}

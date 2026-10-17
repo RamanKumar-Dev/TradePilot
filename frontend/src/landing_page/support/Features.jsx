@@ -28,7 +28,7 @@ function Features() {
         </div>
         <div className="col-5">
           <h5>
-            <i class="fa-regular fa-circle-user"></i> Your Zerodha Account
+            <i class="fa-regular fa-circle-user"></i> Your TradePilot Account
           </h5>
           <ul>
             <li>

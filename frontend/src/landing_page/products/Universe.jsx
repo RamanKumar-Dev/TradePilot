@@ -12,11 +12,11 @@ function Universe() {
       <div>
         <p className="fs-5">
           Want to know more about our technology stack? Check out the
-          Zerodha.tech blog.
+          TradePilot.tech blog.
         </p>
       </div>
       <div className="universe-top-space">
-        <h3>The Zerodha Universe</h3>
+        <h3>The TradePilot Universe</h3>
         <p className="fs-6 mt-4">
           Extend your trading and investment experience even further with our
           partner platforms

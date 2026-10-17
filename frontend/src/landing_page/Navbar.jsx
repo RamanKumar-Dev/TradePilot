@@ -11,7 +11,7 @@ function Navbar() {
             <img
               src={logo}
               alt="logo"
-              style={{ width: "130px", height: "17px" }}
+              style={{ width: "280px", height: "50px" }}
             />
           </Link>
         </div>
@@ -34,6 +34,11 @@ function Navbar() {
               <li className="nav-item me-4">
                 <Link className="nav-link" aria-current="page" to="/signup">
                   Signup
+                </Link>
+              </li>
+              <li className="nav-item me-4">
+                <Link className="nav-link" to="/signin">
+                  Sign In
                 </Link>
               </li>
               <li className="nav-item me-4">

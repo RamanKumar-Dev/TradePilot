@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import { VerticalGraph } from "./VerticalGraph";
 // import { holdings } from "../data/data";
 
 function Holdings() {
@@ -8,13 +9,28 @@ function Holdings() {
 
   useEffect(() => {
     axios.get("http://localhost:3002/allHoldings").then((res) => {
-      console.log("Holdings API response:", res.data);
+      // console.log("Holdings API response:", res.data);
       setAllHoldings(res.data);
     })
       .catch((err) => {
         console.error("Failed to fetch holdings:", err);
       });
   }, []);
+
+
+  // const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  const labels = allHoldings.map((subArray) => subArray['name']);
+
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: "Stock Price",
+        data: allHoldings.map((stock) => stock.price),
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      },
+    ]
+  }
 
   return (
     <>
@@ -37,27 +53,27 @@ function Holdings() {
 
           <tbody>
             {allHoldings.map((stock) => {
-            const qty = Number(stock.qty ?? 0);
-            const avg = Number(stock.avg ?? 0);
-            const price = Number(stock.price ?? 0);
-            const currVal = price * qty;
-            const pnl = currVal - avg * qty;
+              const qty = Number(stock.qty ?? 0);
+              const avg = Number(stock.avg ?? 0);
+              const price = Number(stock.price ?? 0);
+              const currVal = price * qty;
+              const pnl = currVal - avg * qty;
 
-            return (
-              <tr key={stock._id}>
-                <td>{stock.name}</td>
-                <td>{qty}</td>
-                <td>{avg.toFixed(2)}</td>
-                <td>{price.toFixed(2)}</td>
-                <td>{currVal.toFixed(2)}</td>
-                <td className={pnl >= 0 ? "profit" : "loss"}>
-                  {pnl.toFixed(2)}
-                </td>
-                <td>{stock.net}</td>
-                <td>{stock.day}</td>
-              </tr>
-            );
-          })}
+              return (
+                <tr key={stock._id}>
+                  <td>{stock.name}</td>
+                  <td>{qty}</td>
+                  <td>{avg.toFixed(2)}</td>
+                  <td>{price.toFixed(2)}</td>
+                  <td>{currVal.toFixed(2)}</td>
+                  <td className={pnl >= 0 ? "profit" : "loss"}>
+                    {pnl.toFixed(2)}
+                  </td>
+                  <td>{stock.net}</td>
+                  <td>{stock.day}</td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
@@ -80,6 +96,7 @@ function Holdings() {
           <p>P&L</p>
         </div>
       </div>
+      <VerticalGraph data={data} />
     </>
   );
 }

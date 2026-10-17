@@ -1,14 +1,12 @@
 import React from "react";
 
 import Menu from "./Menu";
+import { FRONTEND_URL } from "../config";
 
 function TopBar() {
-  const handleLogout = async () => {
-    try {
-      await axios.post("http://localhost:3002/logout", {}, { withCredentials: true });
-    } finally {
-      window.location.href = "http://localhost:5173/signin";
-    }
+  const handleLogout = () => {
+    localStorage.removeItem("tradepilot_token");
+    window.location.href = `${FRONTEND_URL}/signin`;
   };
 
   return (
@@ -35,7 +33,6 @@ function TopBar() {
       >
         Logout
       </button>
-
     </div>
   );
 }

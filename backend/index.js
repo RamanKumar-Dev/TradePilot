@@ -12,11 +12,22 @@ const { UserModel } = require('./model/UserModel');
 const auth = require('./auth');
 
 const app = express();
-app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5174'], // frontend + dashboard
-  credentials: true, // lets the browser send the login cookie
-}));
+// Sites allowed to call this backend: local dev + deployed frontend/dashboard (from env)
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:5174',
+  process.env.FRONTEND_URL,
+  process.env.DASHBOARD_URL,
+]
+  .filter(Boolean)
+  .map((url) => url.replace(/\/+$/, '')); // remove any trailing slash
+app.use(cors({ origin: allowedOrigins }));
 app.use(bodyParser.json());
+
+if (!process.env.AUTH_SECRET) {
+  console.error("AUTH_SECRET is missing. Add it to your .env file (or Render environment variables).");
+  process.exit(1);
+}
 
 const PORT = process.env.PORT || 3002;
 const dbUrl = process.env.ATLASDB_URL;
@@ -141,16 +152,16 @@ app.post("/signin", async (req, res) => {
       return res.status(401).json({ message: "Invalid email or password" });
     }
 
-    auth.setLoginCookie(res, auth.createToken(user._id.toString()));
-    res.json({ message: "Signed in", user: { name: user.name, email: user.email } });
+    const token = auth.createToken(user._id.toString());
+    res.json({ message: "Signed in", token, user: { name: user.name, email: user.email } });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Something went wrong" });
   }
 });
 
+// The browser deletes its own token on logout; this route just confirms it.
 app.post("/logout", (req, res) => {
-  auth.clearLoginCookie(res);
   res.json({ message: "Logged out" });
 });
 

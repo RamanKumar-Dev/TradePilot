@@ -1,7 +1,6 @@
 // Simple auth helpers using only Node's built-in crypto (no extra packages).
 const crypto = require('crypto');
 
-const COOKIE_NAME = 'tradepilot_token';
 const ONE_DAY = 24 * 60 * 60 * 1000;
 
 // ---- Password hashing (scrypt + random salt) ----
@@ -41,19 +40,10 @@ function readToken(token) {
   return userId;
 }
 
-// ---- Cookie helpers ----
+// ---- Read the token from the "Authorization: Bearer <token>" header ----
 function getTokenFromRequest(req) {
-  const header = req.headers.cookie || '';
-  const match = header.split(';').map((c) => c.trim()).find((c) => c.startsWith(COOKIE_NAME + '='));
-  return match ? decodeURIComponent(match.split('=')[1]) : null;
-}
-
-function setLoginCookie(res, token) {
-  res.cookie(COOKIE_NAME, token, { httpOnly: true, sameSite: 'lax', maxAge: ONE_DAY });
-}
-
-function clearLoginCookie(res) {
-  res.clearCookie(COOKIE_NAME, { httpOnly: true, sameSite: 'lax' });
+  const header = req.headers.authorization || '';
+  return header.startsWith('Bearer ') ? header.slice(7) : null;
 }
 
 module.exports = {
@@ -62,6 +52,4 @@ module.exports = {
   createToken,
   readToken,
   getTokenFromRequest,
-  setLoginCookie,
-  clearLoginCookie,
 };

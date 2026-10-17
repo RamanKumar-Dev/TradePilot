@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { API_URL, DASHBOARD_URL } from "../../config";
 
 function Signin() {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -18,10 +19,10 @@ function Signin() {
     }
 
     try {
-      const res = await fetch("http://localhost:3002/signin", {
+      const res = await fetch(`${API_URL}/signin`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        credentials: "include", // lets the backend set the login cookie
+        // credentials: "include", // lets the backend set the login cookie
         body: JSON.stringify(form),
       });
       const data = await res.json();
@@ -32,7 +33,7 @@ function Signin() {
       }
 
       // Login worked - go to the dashboard
-      window.location.href = "http://localhost:5174";
+      window.location.href = `${DASHBOARD_URL}/#token=${encodeURIComponent(data.token)}`;
     } catch (err) {
       setError("Cannot reach the server. Is the backend running?");
     }
